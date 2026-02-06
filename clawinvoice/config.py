@@ -13,7 +13,8 @@ load_dotenv(_PROJECT_ROOT / ".env")
 
 # --- public helpers -----------------------------------------------------------
 
-RPC_URL: str = os.getenv("RPC_URL", "https://sepolia.base.org")
+# Accept both WEB3_RPC_URL (as documented in skills) and RPC_URL for compat
+RPC_URL: str = os.getenv("WEB3_RPC_URL", os.getenv("RPC_URL", "https://sepolia.base.org"))
 USDC_CONTRACT: str = os.getenv(
     "USDC_CONTRACT", "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
 )
@@ -24,4 +25,4 @@ except ValueError as exc:
     raise ValueError(f"CHAIN_ID must be a valid integer, got: {chain_id_str!r}") from exc
 
 DATA_DIR: Path = _PROJECT_ROOT / "data"
-LEDGER_PATH: Path = DATA_DIR / "ledger.jsonl"
+LEDGER_PATH: Path = Path(os.getenv("LEDGER_PATH", str(DATA_DIR / "ledger.jsonl")))
