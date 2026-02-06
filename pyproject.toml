@@ -21,7 +21,7 @@ dev = [
 ]
 
 [project.scripts]
-clawinvoice = "clawinvoice.cli:app"
+clawinvoice = "clawinvoice.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["clawinvoice*"]
