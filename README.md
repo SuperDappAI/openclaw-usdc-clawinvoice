@@ -10,9 +10,3 @@ Status: scaffold / in progress.
 
 ## Next
 See repo issues for implementation tasks.
-
-## Docs
-- docs/submission.md
-- docs/voting.md
-- docs/rules.md
-
