@@ -17,7 +17,11 @@ RPC_URL: str = os.getenv("RPC_URL", "https://sepolia.base.org")
 USDC_CONTRACT: str = os.getenv(
     "USDC_CONTRACT", "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
 )
-CHAIN_ID: int = int(os.getenv("CHAIN_ID", "84532"))
+chain_id_str = os.getenv("CHAIN_ID", "84532")
+try:
+    CHAIN_ID: int = int(chain_id_str)
+except ValueError as exc:
+    raise ValueError(f"CHAIN_ID must be a valid integer, got: {chain_id_str!r}") from exc
 
 DATA_DIR: Path = _PROJECT_ROOT / "data"
 LEDGER_PATH: Path = DATA_DIR / "ledger.jsonl"
