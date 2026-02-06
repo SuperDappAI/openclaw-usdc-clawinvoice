@@ -1,3 +1,9 @@
+---
+name: clawinvoice
+description: Agentic USDC invoice CLI for Base Sepolia (create/verify/deliver).
+metadata: {"openclaw": {"emoji": "🧾", "always": true}}
+---
+
 # ClawInvoice – OpenClaw Skill
 
 ## Overview
