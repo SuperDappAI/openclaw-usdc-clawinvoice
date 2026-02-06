@@ -28,10 +28,16 @@ def read_all(path: Path = LEDGER_PATH) -> list[dict[str, Any]]:
     _ensure_file(path)
     records: list[dict[str, Any]] = []
     with path.open() as fh:
-        for line in fh:
+        for lineno, line in enumerate(fh, start=1):
             line = line.strip()
-            if line:
+            if not line:
+                continue
+            try:
                 records.append(json.loads(line))
+            except json.JSONDecodeError as exc:
+                raise ValueError(
+                    f"Malformed JSON in ledger file {path} at line {lineno}"
+                ) from exc
     return records
 
 
