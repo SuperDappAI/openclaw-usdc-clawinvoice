@@ -85,6 +85,7 @@ clawinvoice verify \
 - `"Underpayment"` – transferred amount is less than the invoice amount.
 - `"Recipient mismatch"` – USDC was sent to a different address.
 - `"Expired"` – the block timestamp exceeds the invoice deadline.
+- `"Payment predates invoice"` – tx happened before the invoice was created.
 
 ---
 

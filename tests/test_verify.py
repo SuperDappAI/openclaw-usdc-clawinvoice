@@ -120,6 +120,12 @@ class TestValidateAgainstInvoice:
         errs = validate_against_invoice(xfer, inv)
         assert any("Expired" in e for e in errs)
 
+    def test_payment_predates_invoice_detected(self) -> None:
+        xfer = self._transfer(ts=1000)
+        inv = {"amount": 1.0, "created_at": 1500}
+        errs = validate_against_invoice(xfer, inv)
+        assert any("predates invoice" in e for e in errs)
+
     def test_no_payee_skips_recipient_check(self) -> None:
         xfer = self._transfer()
         inv = {"amount": 1.0}

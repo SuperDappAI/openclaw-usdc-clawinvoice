@@ -154,4 +154,12 @@ def validate_against_invoice(
             f"invoice deadline {deadline}"
         )
 
+    # -- creation time check (avoid pre-invoice payments) --
+    created_at = invoice.get("created_at")
+    if created_at is not None and transfer.block_ts < created_at:
+        issues.append(
+            f"Payment predates invoice: block timestamp {transfer.block_ts} is before "
+            f"invoice creation {created_at}"
+        )
+
     return issues

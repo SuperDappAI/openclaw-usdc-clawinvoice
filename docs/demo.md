@@ -63,6 +63,7 @@ Using your wallet (MetaMask, cast, etc.), send **at least 5 USDC** on
 Base Sepolia to the payee address above.
 
 Copy the **transaction hash** once the transfer confirms.
+> Note: the verifier rejects payments that predate the invoice creation.
 
 ### 4. Verify the Payment
 
