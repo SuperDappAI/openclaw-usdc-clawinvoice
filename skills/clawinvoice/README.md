@@ -37,5 +37,5 @@ to use each command.
 ## Prerequisites
 
 - Python ≥ 3.11
-- `pip install -e ".[dev]"` from the repo root
+- `pip install -e .` from the repo root
 - A Base Sepolia RPC endpoint (the public default works for light usage)

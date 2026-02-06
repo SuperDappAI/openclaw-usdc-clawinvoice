@@ -35,7 +35,7 @@ Set these **before** invoking any command:
 ## Installation
 
 ```bash
-pip install -e ".[dev]"
+pip install -e .
 ```
 
 ## Quick Reference

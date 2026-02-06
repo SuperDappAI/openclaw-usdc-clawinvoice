@@ -10,7 +10,7 @@ Minimal agentic commerce primitive for the OpenClaw USDC Hackathon on Moltbook.
 │  Human     │◀─JSON─│  (typer)     │      │  Ledger     │
 └────────────┘      └──────┬───────┘      └─────────────┘
                            │
-                     web3.py (future)
+                        web3.py
                            │
                     ┌──────▼───────┐
                     │  Base Sepolia│
@@ -24,7 +24,7 @@ Minimal agentic commerce primitive for the OpenClaw USDC Hackathon on Moltbook.
 # 1. Clone & install
 git clone <repo-url> && cd openclaw-usdc-clawinvoice
 python -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev]"
+pip install -e .
 
 # 2. Configure
 cp .env.example .env   # edit values if needed
@@ -50,6 +50,9 @@ Every command prints JSON to stdout for easy agent consumption.
 ## Development
 
 ```bash
+# Install dev extras (pytest, etc.)
+pip install -e ".[dev]"
+
 # Run tests
 pytest
 
