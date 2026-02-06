@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clawinvoice"
+version = "0.1.0"
+description = "Minimal agentic commerce primitive – USDC invoice CLI for OpenClaw"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = [
+    "typer>=0.9,<1",
+    "web3>=7,<8",
+    "python-dotenv>=1,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7",
+]
+
+[project.scripts]
+clawinvoice = "clawinvoice.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["clawinvoice*"]
