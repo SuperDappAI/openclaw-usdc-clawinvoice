@@ -73,8 +73,3 @@ Copy `.env.example` to `.env`. Available variables:
 
 ## Next
 See repo issues for implementation tasks.
-
-## Docs
-- docs/submission.md
-- docs/voting.md
-- docs/rules.md
