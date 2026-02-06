@@ -36,8 +36,11 @@ _TEN_USDC_HEX = format(10_000_000, "064x")
 class _HexBytes(bytes):
     """Tiny stand-in for hexbytes.HexBytes used in web3 log entries."""
 
-    def hex(self) -> str:  # noqa: A003
+    def as_hex(self) -> str:
         return super().hex()
+
+    # web3 log topics expose .hex() — mirror that interface
+    hex = as_hex  # type: ignore[assignment]
 
 
 def _make_topic(hex_str: str) -> _HexBytes:

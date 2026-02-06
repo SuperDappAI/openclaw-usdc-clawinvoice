@@ -15,9 +15,10 @@ from web3 import Web3
 from clawinvoice.config import RPC_URL, USDC_CONTRACT
 
 # Pre-computed keccak-256 of the canonical ERC-20 event signature
-# "Transfer(address,address,uint256)".
+# "Transfer(address,address,uint256)" — stored without the 0x prefix
+# so it can be compared directly with HexBytes.hex() output.
 _TRANSFER_EVENT_HASH = (
-    "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+    "ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
 )
 
 # USDC token uses 6 decimal places.
@@ -93,7 +94,7 @@ def fetch_usdc_transfer(
         topics = entry.get("topics", [])
         if len(topics) < 3:
             continue
-        if topics[0].hex() == _TRANSFER_EVENT_HASH[2:]:
+        if topics[0].hex() == _TRANSFER_EVENT_HASH:
             found_transfer = entry
             break
 
