@@ -3,6 +3,17 @@
 This guide walks through the complete invoice lifecycle on **Base Sepolia**:
 create → pay → verify → deliver.
 
+## Why this demo matters
+
+This flow proves **agent‑native commerce** end‑to‑end:
+
+- An invoice is created with clear terms.
+- A USDC transfer is verified onchain.
+- A deliverable is attached as proof.
+
+The demo evidence (tx hash + proof link + JSON output) is the core artifact
+for the hackathon submission.
+
 ---
 
 ## Prerequisites
@@ -10,7 +21,7 @@ create → pay → verify → deliver.
 | Requirement        | Details                                            |
 |--------------------|----------------------------------------------------|
 | Python             | ≥ 3.11                                             |
-| Install            | `pip install -e ".[dev]"` from the repo root       |
+| Install            | `pip install -e .` from the repo root              |
 | RPC endpoint       | Default `https://sepolia.base.org` works           |
 | Testnet USDC       | See "Getting Testnet USDC" below                   |
 

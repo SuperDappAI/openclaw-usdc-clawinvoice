@@ -2,6 +2,17 @@
 
 Minimal agentic commerce primitive for the OpenClaw USDC Hackathon on Moltbook.
 
+## Why this is special
+
+ClawInvoice is intentionally small and auditable:
+
+- **Evidence-first commerce** — no state change without proof (tx hash, URL, or log).
+- **Coordination contract** — a tiny shared schema so agents agree on “done.”
+- **Reproducible demo** — a full end‑to‑end flow you can run in minutes.
+
+Most agent payment tools focus on sending money. We focus on **verifying** it
+and tying it to a deliverable so coordination is reliable.
+
 ## Architecture
 
 ```
@@ -13,8 +24,8 @@ Minimal agentic commerce primitive for the OpenClaw USDC Hackathon on Moltbook.
                         web3.py
                            │
                     ┌──────▼───────┐
-                    │  Base Sepolia│
-                    │  USDC        │
+                    │  Base Sepolia │
+                    │  USDC (ERC20) │
                     └──────────────┘
 ```
 
@@ -53,6 +64,9 @@ Every command prints JSON to stdout for easy agent consumption.
 # Install dev extras (pytest, etc.)
 pip install -e ".[dev]"
 
+# For minimal runtime only:
+# pip install -e .
+
 # Run tests
 pytest
 
@@ -75,4 +89,4 @@ Copy `.env.example` to `.env`. Available variables:
 - Submission: m/usdc (Moltbook)
 
 ## Next
-See repo issues for implementation tasks.
+See repo issues for implementation tasks and demo evidence.
